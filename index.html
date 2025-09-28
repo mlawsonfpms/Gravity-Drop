@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gravity Drop Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px;
+      margin-top: 30px;
+    }
+    .box {
+      background: #000;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    select, button {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    #simulation-area {
+      margin-top: 40px;
+      border-top: 4px solid lime;
+      height: 300px;
+      position: relative;
+    }
+    .object {
+      width: 40px;
+      height: 40px;
+      background-color: lightblue;
+      position: absolute;
+      top: 0;
+    }
+    .gravity-labels {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gravity Drop Simulation</h1>
+  <div class="container">
+    <div class="box">
+      <select id="planet1">
+        <option value="Earth">Earth</option>
+        <option value="Moon">Moon</option>
+        <option value="Mars">Mars</option>
+      </select>
+      <select id="object1">
+        <option value="Feather">Feather</option>
+        <option value="Ball">Ball</option>
+        <option value="Rock">Rock</option>
+        <option value="Car">Car</option>
+      </select>
+      <label><input type="checkbox" id="air1" checked /> Air Resistance</label>
+    </div>
+    <div>
+      <button onclick="startDrop()">Drop!</button><br/>
+      <button onclick="resetSim()">Reset</button>
+    </div>
+    <div class="box">
+      <select id="planet2">
+        <option value="Earth">Earth</option>
+        <option value="Moon">Moon</option>
+        <option value="Mars">Mars</option>
+      </select>
+      <select id="object2">
+        <option value="Feather">Feather</option>
+        <option value="Ball">Ball</option>
+        <option value="Rock">Rock</option>
+        <option value="Car">Car</option>
+      </select>
+      <label><input type="checkbox" id="air2" checked /> Air Resistance</label>
+    </div>
+  </div>
+
+  <div id="simulation-area">
+    <div id="obj1" class="object" style="left: 40%;"></div>
+    <div id="obj2" class="object" style="left: 55%;"></div>
+  </div>
+
+  <div class="gravity-labels">
+    <div id="gravity-info"></div>
+    <div id="timer-display"></div>
+  </div>
+
+  <script>
+    const gravities = { Earth: 9.8, Moon: 1.6, Mars: 3.7 };
+
+    function startDrop() {
+      const p1 = document.getElementById('planet1').value;
+      const p2 = document.getElementById('planet2').value;
+      const air1 = document.getElementById('air1').checked;
+      const air2 = document.getElementById('air2').checked;
+
+      const g1 = gravities[p1];
+      const g2 = gravities[p2];
+
+      document.getElementById('gravity-info').innerText = 
+        `${p1} gravity: ${g1} m/s² | ${p2} gravity: ${g2} m/s²`;
+
+      let t1 = 0, t2 = 0;
+      const duration1 = air1 ? 3000 / g1 : 2000 / g1;
+      const duration2 = air2 ? 3000 / g2 : 2000 / g2;
+
+      const o1 = document.getElementById('obj1');
+      const o2 = document.getElementById('obj2');
+      o1.style.top = '0px';
+      o2.style.top = '0px';
+
+      const start = performance.now();
+      function animate() {
+        const now = performance.now();
+        t1 = now - start;
+        let y1 = Math.min(260, t1 / duration1 * 260);
+        let y2 = Math.min(260, t1 / duration2 * 260);
+        o1.style.top = `${y1}px`;
+        o2.style.top = `${y2}px`;
+        document.getElementById('timer-display').innerText = `Time: ${(t1/1000).toFixed(2)} s`;
+        if (y1 < 260 || y2 < 260) {
+          requestAnimationFrame(animate);
+        }
+      }
+      animate();
+    }
+
+    function resetSim() {
+      document.getElementById('obj1').style.top = '0px';
+      document.getElementById('obj2').style.top = '0px';
+      document.getElementById('gravity-info').innerText = '';
+      document.getElementById('timer-display').innerText = '';
+    }
+  </script>
+</body>
+</html>
