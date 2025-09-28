@@ -4,31 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gravity Drop Simulation</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <h1>Gravity Drop Simulation</h1>
   <div class="controls">
-    <div class="column">
+    <div class="selector">
       <select id="planet1"></select>
       <select id="object1"></select>
       <label><input type="checkbox" id="air1" checked /> Air Resistance</label>
     </div>
-    <div class="column">
+    <div class="buttons">
+      <button id="dropButton">Drop!</button>
+      <button id="resetButton">Reset</button>
+    </div>
+    <div class="selector">
       <select id="planet2"></select>
       <select id="object2"></select>
       <label><input type="checkbox" id="air2" checked /> Air Resistance</label>
     </div>
   </div>
-  <div class="buttons">
-    <button onclick="startDrop()">Drop!</button>
-    <button onclick="reset()">Reset</button>
+  <div class="simulation-area">
+    <canvas id="canvas"></canvas>
   </div>
-  <div id="simulation">
-    <div id="objectA" class="object"></div>
-    <div id="objectB" class="object"></div>
-  </div>
-  <div id="info"></div>
-  <script src="script.js"></script>
+  <p id="info"></p>
 </body>
 </html>
