@@ -1,49 +1,31 @@
 body {
-  background-color: #111;
-  background-image: url('background.png');
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin: 20px 0;
+    margin: 0;
+    font-family: sans-serif;
+    background: url("assets/background.webp") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
 }
 
 .controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.7);
 }
 
-.selector {
-  background: black;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
+.drop-zone {
+    position: relative;
+    height: 500px;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-  margin: 0 10px;
+.falling-object {
+    position: absolute;
+    width: 60px;
+    height: auto;
+    top: 0;
+    transition: top 1s linear;
 }
 
-button {
-  font-size: 1rem;
-  padding: 6px 12px;
-  margin: 5px;
-}
-
-.simulation-area {
-  position: relative;
-  height: 500px;
-}
-
-canvas {
-  background: transparent;
-  width: 100%;
-  height: 100%;
+#info {
+    margin-top: 20px;
+    font-size: 18px;
 }
