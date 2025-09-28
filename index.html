@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gravity Drop Simulation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Gravity Drop Simulation</h1>
+  <div class="controls">
+    <label>Left Planet:
+      <select id="planetSelectLeft"></select>
+    </label>
+    <select id="objectSelectLeft"></select>
+
+    <label>Right Planet:
+      <select id="planetSelectRight"></select>
+    </label>
+    <select id="objectSelectRight"></select>
+
+    <label><input type="checkbox" id="airResistanceLeft" checked /> Air Resistance (Left)</label>
+    <label><input type="checkbox" id="airResistanceRight" checked /> Air Resistance (Right)</label>
+
+    <button onclick="startSimulation()">Drop!</button>
+    <button onclick="resetSimulation()">Reset</button>
+  </div>
+
+  <div class="simulation-container">
+    <div id="simulationLeft" class="simulation-box"></div>
+    <div id="simulationRight" class="simulation-box"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
