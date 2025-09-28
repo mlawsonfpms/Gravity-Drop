@@ -1,33 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gravity Drop Simulation</title>
-  <link rel="stylesheet" href="style.css"/>
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Real Background Physics</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: url('assets/background.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <h1>Gravity Drop Simulation</h1>
-  <div class="controls">
-    <div class="selector">
-      <select id="planet1"></select>
-      <select id="object1"></select>
-      <label><input type="checkbox" id="air1" checked /> Air Resistance</label>
-    </div>
-    <div class="buttons">
-      <button id="dropButton">Drop!</button>
-      <button id="resetButton">Reset</button>
-    </div>
-    <div class="selector">
-      <select id="planet2"></select>
-      <select id="object2"></select>
-      <label><input type="checkbox" id="air2" checked /> Air Resistance</label>
-    </div>
-  </div>
-  <div class="simulation-area">
-    <canvas id="canvas"></canvas>
-  </div>
-  <p id="info"></p>
+<canvas id="canvas"></canvas>
+<script src="main.js"></script>
 </body>
 </html>
