@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gravity Drop Simulation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Gravity Drop Simulation</h1>
+    <div class="controls">
+      <div>
+        <label>Left Planet:
+          <select id="leftPlanet">
+            <option value="9.81">Earth</option>
+            <option value="1.62">Moon</option>
+            <option value="3.7">Mars</option>
+            <option value="24.79">Jupiter</option>
+            <option value="8.87">Venus</option>
+            <option value="11.15">Neptune</option>
+            <option value="10.44">Saturn</option>
+            <option value="8.69">Uranus</option>
+            <option value="0.62">Pluto</option>
+            <option value="1.62">Moon</option>
+          </select>
+        </label>
+        <select id="leftObject">
+          <option value="rock">Rock</option>
+          <option value="feather2">Feather</option>
+          <option value="paper2">Paper</option>
+          <option value="car2">Car</option>
+          <option value="piano2">Piano</option>
+          <option value="ball2">Ball</option>
+        </select>
+      </div>
+      <div>
+        <label>Right Planet:
+          <select id="rightPlanet">
+            <option value="9.81">Earth</option>
+            <option value="1.62">Moon</option>
+            <option value="3.7">Mars</option>
+            <option value="24.79">Jupiter</option>
+            <option value="8.87">Venus</option>
+            <option value="11.15">Neptune</option>
+            <option value="10.44">Saturn</option>
+            <option value="8.69">Uranus</option>
+            <option value="0.62">Pluto</option>
+            <option value="1.62">Moon</option>
+          </select>
+        </label>
+        <select id="rightObject">
+          <option value="rock">Rock</option>
+          <option value="feather2">Feather</option>
+          <option value="paper2">Paper</option>
+          <option value="car2">Car</option>
+          <option value="piano2">Piano</option>
+          <option value="ball2">Ball</option>
+        </select>
+      </div>
+      <div>
+        <label><input type="checkbox" id="airResistance" checked /> Air Resistance</label>
+      </div>
+      <div>
+        <button onclick="startDrop()">Drop!</button>
+        <button onclick="resetSim()">Reset</button>
+      </div>
+    </div>
+  </header>
+  <div class="sim-container">
+    <div class="sim-area" id="leftSim">
+      <img id="leftObjectImg" class="object" />
+      <div class="ground"></div>
+      <div id="leftTimer" class="timer"></div>
+    </div>
+    <div class="sim-area" id="rightSim">
+      <img id="rightObjectImg" class="object" />
+      <div class="ground"></div>
+      <div id="rightTimer" class="timer"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
