@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gravity Drop Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="controls">
+        <div>
+            <select id="planet-select">
+                <option value="mercury">Mercury</option>
+                <option value="venus">Venus</option>
+                <option value="earth" selected>Earth</option>
+                <option value="moon">Moon</option>
+                <option value="mars">Mars</option>
+                <option value="jupiter">Jupiter</option>
+                <option value="saturn">Saturn</option>
+                <option value="uranus">Uranus</option>
+                <option value="neptune">Neptune</option>
+                <option value="pluto">Pluto</option>
+            </select>
+            <select id="object-select">
+                <option value="feather">Feather</option>
+                <option value="ball">Bowling Ball</option>
+                <option value="car">Car</option>
+                <option value="rock">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="piano">Piano</option>
+            </select>
+            <label><input type="checkbox" id="air-resistance" checked> Air Resistance</label>
+            <button onclick="dropObjects()">Drop!</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+    </div>
+    <div class="drop-zone">
+        <img id="object-left" class="falling-object" />
+        <img id="object-right" class="falling-object" />
+    </div>
+    <div id="info"></div>
+    <script src="script.js"></script>
+</body>
+</html>

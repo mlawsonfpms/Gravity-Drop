@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: url("assets/background.webp") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.controls {
+    padding: 20px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.drop-zone {
+    position: relative;
+    height: 500px;
+}
+
+.falling-object {
+    position: absolute;
+    width: 60px;
+    height: auto;
+    top: 0;
+    transition: top 1s linear;
+}
+
+#info {
+    margin-top: 20px;
+    font-size: 18px;
+}
