@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar System Gravity Drop Simulation</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Solar System Drop Simulation (1 km) 🪐</h1>
+
+    <div class="controls-container">
+        <div class="control-panel" id="panel-1">
+            <h2>Simulator 1</h2>
+
+            <label for="location-1">Location:</label>
+            <select id="location-1"></select>
+
+            <label for="item-1">Item to Drop:</label>
+            <select id="item-1"></select>
+
+            <div class="info-box">
+                <p>Gravity: <span id="gravity-1">0.00</span> m/s²</p>
+                <p>Fall Time: <span id="time-1">0.00</span> s</p>
+            </div>
+        </div>
+
+        <div class="master-controls">
+            <button id="start-button">START SIMULATION</button>
+            <button id="reset-button" disabled>RESET</button>
+
+            <div class="air-toggle">
+                <input type="checkbox" id="air-resistance-toggle" checked />
+                <label for="air-resistance-toggle">Air Resistance (if atmosphere) ON/OFF</label>
+            </div>
+            <p class="note">Drops from 1000 meters high.</p>
+        </div>
+
+        <div class="control-panel" id="panel-2">
+            <h2>Simulator 2</h2>
+
+            <label for="location-2">Location:</label>
+            <select id="location-2"></select>
+
+            <label for="item-2">Item to Drop:</label>
+            <select id="item-2"></select>
+
+            <div class="info-box">
+                <p>Gravity: <span id="gravity-2">0.00</span> m/s²</p>
+                <p>Fall Time: <span id="time-2">0.00</span> s</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="animation-area">
+        <div class="drop-column">
+            <div class="drop-object" id="object-1"></div>
+            <div class="timer-display" id="timer-1">0.00 s</div>
+        </div>
+        <div class="drop-column">
+            <div class="drop-object" id="object-2"></div>
+            <div class="timer-display" id="timer-2">0.00 s</div>
+        </div>
+        <div class="ground-line">GROUND (0m)</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
